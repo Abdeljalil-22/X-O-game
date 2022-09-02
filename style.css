@@ -1,0 +1,131 @@
+*, body
+{
+margin: 0;
+box-sizing: border-box;
+}
+
+.beard{
+    margin-top: 15%;
+    display: grid;
+    
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: auto auto auto ;
+}
+.cell{
+    
+    width: 100px;
+    height: 100px;
+    border: 3px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+   
+    cursor:no-drop;
+   
+}
+.cell:not(.x).cell:not(.o){
+    cursor:pointer;
+}
+.cell:nth-child(1),.cell:nth-child(2),.cell:nth-child(3) {
+  
+    border-top: none;
+    }
+.cell:nth-child(1),.cell:nth-child(4),.cell:nth-child(7) {
+        
+        border-left: none;
+        }
+.cell:nth-child(3),.cell:nth-child(6),.cell:nth-child(9) {
+        
+            border-right: none;
+        }
+.cell:nth-child(7),.cell:nth-child(8),.cell:nth-child(9) {
+        
+            border-bottom: none;
+            }
+
+
+.cell.x::after,.cell.x::before{
+   
+    position:absolute;
+    
+    content:'';
+    display: block;
+    width:10px;
+    height:90px;
+    background-color:rgb(3, 0, 0);
+  
+    
+}
+.cell.x::after{
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.cell.x::before{
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+
+
+.cell.o::after,.cell.o::before{
+   
+    position:absolute;
+    
+    content:'';
+    display: block;
+    width:90px;
+    height:90px;
+    border-radius: 50%;
+    background-color:black;
+  
+    
+}
+.cell.o::after{
+    width: 75px;
+    height: 75px;
+    background-color:white;
+}
+
+
+.message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .9);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
+    flex-direction: column;
+  }
+  
+  .message button {
+    font-size: 3rem;
+    background-color: white;
+    border: 1px solid black;
+    padding: .25em .5em;
+    cursor: pointer;
+  }
+  
+  .message button:hover {
+    background-color: black;
+    color: white;
+    border-color: white;
+  }
+  
+  .message.show {
+    display: flex;
+  }
+  
+  
